@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 alias sopen='open -a Sublime\ Text\ 2.app'
 
@@ -29,6 +30,7 @@ export ima="$im/Audiobooks"
 alias ovlc="open -a /Applications/VLC.app"
 
 defn chrome open -a "\"/Applications/Google Chrome.app\""
+alias chrm=chrome
 
 export CHROMECAST_MAC=D0:E7:82:55:CD:86
 
@@ -39,11 +41,17 @@ export DL="$dl"
 export d="$dl"
 
 alias pb=pbpaste
-alias pbp=pbpaste
+pbp() {
+	pbcopy; pbpaste
+}
 alias pbc=pbcopy
 alias pbL="pbpaste | less"
 alias cy=pbcopy
 alias copy=pbcopy
+ccy() {
+	cat "$@" | pbcopy
+}
+export -f ccy
 
 alias pbpn="pbpaste | wc -l"
 alias pn="pbpaste | wc -l"
@@ -67,3 +75,5 @@ export PGDATA=/usr/local/postgres9.3.1/data
 
 # namei for OSX: brew install mkdryden/homebrew-misc/namei
 defn ni namei
+
+alias pbg="pbpaste | gist -pc"
