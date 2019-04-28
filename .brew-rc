@@ -1,0 +1,45 @@
+
+alias bs="brew search"
+alias bi="brew install"
+alias bif="brew info"
+alias bud="brew update"
+alias bug="brew upgrade"
+alias bl="brew list"
+alias bln="brew link"
+alias brl="brew link"
+alias bul="brew unlink"
+burl() {
+	for arg in "$@"; do
+		brew unlink "$arg" && brew link "$arg"
+	done
+}
+
+alias blno="brew link --overwrite"
+alias blo="brew link --overwrite"
+alias bdr="brew doctor"
+alias bri="brew reinstall"
+alias bui="brew uninstall"
+
+buri() {
+	brew uninstall "$@"
+	brew reinstall "$@"
+}
+
+alias blv="brew list --versions"
+alias bv="brew list --versions"
+
+if [ -s "$HOME/.brew" ]; then
+  # exports brew Github token
+  source "$HOME/.brew"
+fi
+
+prepend_to_path "/usr/local/bin" "/usr/local/sbin"  # For brew
+if which-exists brew; then
+  export cellar=$(brew --prefix)/Cellar
+fi
+
+export ul=/usr/local
+export ulb="$ul"/bin
+export ull="$ul"/lib
+export uli="$ul"/include
+export uls="$ul"/share
