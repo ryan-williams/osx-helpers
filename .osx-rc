@@ -75,3 +75,5 @@ fi
 if [ -s /usr/share/dict/words ]; then
   export dict=/usr/share/dict/words
 fi
+
+append_to LIBRARY_PATH /usr/local/opt/openssl/lib
