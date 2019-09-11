@@ -77,3 +77,6 @@ if [ -s /usr/share/dict/words ]; then
 fi
 
 append_to LIBRARY_PATH /usr/local/opt/openssl/lib
+
+
+export GOROOT=/usr/local/opt/go/libexec
