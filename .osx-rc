@@ -85,3 +85,6 @@ pyei() {
   CPPFLAGS="-I$(brew --prefix zlib)/include -I$(brew --prefix sqlite)/include" pyenv install "$@"
 }
 export -f pyei
+
+defn xargs gxargs
+defn readlink greadlink
