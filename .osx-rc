@@ -88,3 +88,5 @@ export -f pyei
 
 defn xargs gxargs
 defn readlink greadlink
+
+defn ltd lt ~/dl/
