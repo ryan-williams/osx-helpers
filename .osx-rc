@@ -33,15 +33,35 @@ pbp() {
 }
 alias pbc=pbcopy
 alias pbL="pbpaste | less"
-alias cy=pbcopy
-alias copy=pbcopy
+
+# Like pbcopy, but strip a trailing newline (pasting into bash or other prompts will often unexpectedly execute the pasted text/command otherwise)
+copy() {
+  cat "$@" | perl -pe 'chomp if eof' | pbcopy
+}
+export -f copy
+defn cy copy
+defn cyy pbcopy
 ccy() {
-	cat "$@" | pbcopy
+	cat "$@" | copy
 }
 export -f ccy
 
+copy_last_updated() {
+  last-updated | copy
+}
+export -f copy_last_updated
+defn clu copy_last_updated
+defn luc copy_last_updated
+
+tee_copy() {
+  cat "$@" | tee >(copy)
+}
+export -f tee_copy
+defn tcy tee_copy
+defn cyt tee_copy
+
 czy() {
-  cz "$@" | pbcopy
+  cz "$@" | copy
 }
 export -f czy
 
@@ -88,3 +108,58 @@ export -f pyei
 
 defn xargs gxargs
 defn readlink greadlink
+
+latest_screenshot() {
+  dir="${SCREENSHOTS_DIR:-$HOME/Screenshots}"
+  last_screenshot="$(ls -t "$dir" | head -n 1)"
+  echo "$dir/$last_screenshot"
+}
+export -f latest_screenshot
+defn lsh latest_screenshot
+
+mv_latest_screenshot() {
+  if [ $# -gt 1 ]; then
+    echo "Usage: $0 [dest]" >&2
+    return 1
+  fi
+  src="$(latest_screenshot)"
+  dst="${1:-./}"
+  echo "Moving: $src → $dst"
+  mv "$src" "$dst"
+}
+export -f mv_latest_screenshot
+defn mvls mv_latest_screenshot
+
+latest_download() {
+  dir="${DOWNLOADS_DIR:-$HOME/Downloads}"
+  last_download="$(ls -t "$dir" | head -n 1)"
+  echo "$dir/$last_download"
+}
+export -f latest_download
+defn ltd latest_download
+ls_latest_download() {
+  l "$(latest_download)"
+}
+export -f ls_latest_download
+defn lltd ls_latest_download
+
+mv_latest_download() {
+  if [ $# -gt 1 ]; then
+    echo "Usage: $0 [dest]" >&2
+    return 1
+  fi
+  src="$(latest_download)"
+  dst="${1:-./}"
+  echo "Moving: $src → $dst"
+  mv "$src" "$dst"
+}
+export -f mv_latest_download
+defn mvld mv_latest_download
+defn mvdl mv_latest_download
+
+defn o open
+open_last_updated() {
+  open "$(last-updated "$@")"
+}
+export -f open_last_updated
+defn ol open_last_updated

@@ -1,5 +1,7 @@
 
 alias bs="brew search"
+alias bci="brew cask install"
+alias bcui="brew cask uninstall"
 alias bi="brew install"
 alias bif="brew info"
 alias bud="brew update"
