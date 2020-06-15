@@ -71,6 +71,19 @@ alias pbpl="pbpaste | len"
 alias pbl="pbpaste | len"
 alias ppl="pbpaste | len"
 
+pwd_copy() {
+  pwd | copy
+}
+export -f pwd_copy
+defn pscy pwd_copy
+
+pwd_tee_copy() {
+  pwd | tee_copy
+}
+export -f pwd_tee_copy
+defn ptcy pwd_tee_copy
+defn pcy pwd_tee_copy
+
 is_osx() {
   uname -a | grep -iq "Darwin"
 }
