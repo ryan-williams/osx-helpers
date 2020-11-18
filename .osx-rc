@@ -19,7 +19,8 @@ export ima="$im/Audiobooks"
 alias ovlc="open -a /Applications/VLC.app"
 
 defn chrome open -a "\"/Applications/Google Chrome.app\""
-alias chrm=chrome
+defn oc chrome
+defn chrm chrome
 
 append_to_path "$HOME/Library/Android/sdk/platform-tools"
 
