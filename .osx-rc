@@ -106,6 +106,10 @@ if [ -e "/usr/local/Cellar" ]; then
   export hb=/usr/local/Cellar
 fi
 
+if [ -e "/opt/homebrew/bin" ]; then
+  export PATH="/opt/homebrew/bin:$PATH"
+fi
+
 if [ -s /usr/share/dict/words ]; then
   export dict=/usr/share/dict/words
 fi
