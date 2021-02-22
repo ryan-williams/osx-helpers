@@ -181,3 +181,7 @@ open_last_updated() {
 }
 export -f open_last_updated
 defn ol open_last_updated
+
+if which gdate &>/dev/null; then
+  alias date=gdate
+fi
