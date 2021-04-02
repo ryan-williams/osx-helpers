@@ -185,3 +185,11 @@ defn ol open_last_updated
 if which gdate &>/dev/null; then
   alias date=gdate
 fi
+
+if which gstat &>/dev/null; then
+  alias stat=gstat
+fi
+
+if which gtouch &>/dev/null; then
+  alias touch=gtouch
+fi
