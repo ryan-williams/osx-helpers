@@ -18,6 +18,8 @@ export ima="$im/Audiobooks"
 
 alias ovlc="open -a /Applications/VLC.app"
 
+defn oa open -a
+defn of open -a '/Applications/Finder.app'
 defn chrome open -a "\"/Applications/Google Chrome.app\""
 defn oc chrome
 defn chrm chrome
