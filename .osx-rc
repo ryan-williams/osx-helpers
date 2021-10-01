@@ -206,3 +206,6 @@ export OPENBLAS="$(brew --prefix openblas)"
 export OPENSSL_ROOT_DIR="$(brew --prefix openssl)"
 
 export PYTHON_CONFIGURE_OPTS="--build=aarch64-apple-darwin20.5.0"
+
+# Use GNU coreutils versions of various builtins
+export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
