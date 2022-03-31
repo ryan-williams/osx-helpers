@@ -17,6 +17,14 @@ export imu="$im/Music"
 export ima="$im/Audiobooks"
 
 alias ovlc="open -a /Applications/VLC.app"
+alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
+transcode_vlc() {
+    input="$1"; shift
+    output="$1"; shift
+    vlc -I rc "$input" --sout="#transcode{vcodec=mp4v,vb=1024}:std{access=file,mux=mp4,dst=$output}"
+}
+export -f transcode_vlc
+defn tvlc transcode_vlc
 
 defn oa open -a
 defn of open -a '/Applications/Finder.app'
