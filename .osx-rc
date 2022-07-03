@@ -145,6 +145,12 @@ latest_screenshot() {
 export -f latest_screenshot
 defn lsh latest_screenshot
 
+open_latest_screenshot() {
+    open "$@" "$(latest_screenshot)"
+}
+export -f open_latest_screenshot
+defn olsh open_latest_screenshot
+
 mv_latest_screenshot() {
   if [ $# -gt 1 ]; then
     echo "Usage: $0 [dest]" >&2
