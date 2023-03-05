@@ -223,3 +223,10 @@ export PYTHON_CONFIGURE_OPTS="--build=aarch64-apple-darwin20.5.0"
 
 # Use GNU coreutils versions of various builtins
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+
+bash_comment_copy() {
+    (echo '```bash' ; history | tail -n1 | perl -pe 's/^\d+\s*(.*)\s*\|\s*(?:bcc|bcy)\s*$/\1\n/' ; cat | perl -pe 's/^(.)/ \1/' | perl -pe 's/^/#/' ; echo '```') | tee_copy
+}
+export -f bash_comment_copy
+defn bcy bash_comment_copy
+defn bcc bash_comment_copy
