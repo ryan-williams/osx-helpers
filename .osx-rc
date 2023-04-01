@@ -224,9 +224,11 @@ export PYTHON_CONFIGURE_OPTS="--build=aarch64-apple-darwin20.5.0"
 # Use GNU coreutils versions of various builtins
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 
-bash_comment_copy() {
-    bash-comment-copy.py "$@" | tcy
+bash_markdown_fence() {
+    bash-markdown-fence.py "$@"
 }
-export -f bash_comment_copy
-defn bcy bash_comment_copy
-defn bcc bash_comment_copy
+export -f bash_markdown_fence
+defn bm bash_markdown_fence --
+defn bmf bash_markdown_fence -f --
+defn bmff bash_markdown_fence -ff --
+defn bmfff bash_markdown_fence -fff --
