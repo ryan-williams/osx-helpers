@@ -30,6 +30,12 @@ defn oa open -a
 defn of open -a '/Applications/Finder.app'
 defn chrome open -a "\"/Applications/Google Chrome.app\""
 defn oc chrome
+open_chrome_latest() {
+    chrome "$(last-updated "$@")"
+}
+export -f open_chrome_latest
+defn ocl open_chrome_latest
+defn olc open_chrome_latest
 defn chrm chrome
 
 append_to_path "$HOME/Library/Android/sdk/platform-tools"
