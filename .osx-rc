@@ -177,8 +177,10 @@ latest_download() {
 }
 export -f latest_download
 defn ltd latest_download
+defn ldl latest_download
+
 ls_latest_download() {
-  l "$(latest_download)"
+  ls -l "$(latest_download)"
 }
 export -f ls_latest_download
 defn lltd ls_latest_download
@@ -229,3 +231,5 @@ export PYTHON_CONFIGURE_OPTS="--build=aarch64-apple-darwin20.5.0"
 
 # Use GNU coreutils versions of various builtins
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+
+alias bpr="brew --prefix"
