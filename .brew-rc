@@ -20,6 +20,7 @@ alias blno="brew link --overwrite"
 alias blo="brew link --overwrite"
 alias bdr="brew doctor"
 alias bri="brew reinstall"
+alias bu="brew uninstall"
 alias bui="brew uninstall"
 
 buri() {
