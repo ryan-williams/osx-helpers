@@ -1,4 +1,5 @@
 
+alias bod="brew outdated"
 alias bs="brew search"
 alias bci="brew cask install"
 alias bcui="brew cask uninstall"
