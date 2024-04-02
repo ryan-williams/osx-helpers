@@ -233,3 +233,5 @@ export PYTHON_CONFIGURE_OPTS="--build=aarch64-apple-darwin20.5.0"
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 
 alias bpr="brew --prefix"
+
+alias uk="security -v unlock-keychain ~/Library/Keychains/login.keychain-db"
