@@ -118,12 +118,15 @@ defn ni namei
 
 alias pbg="pbpaste | gist -pc"
 
-if [ -e "/usr/local/Cellar" ]; then
+if [ -d "/usr/local/Cellar" ]; then
   export hb=/usr/local/Cellar
 fi
 
-if [ -e "/opt/homebrew/bin" ]; then
+if [ -d /opt/homebrew/bin ]; then
   export PATH="/opt/homebrew/bin:$PATH"
+  if [ -d /opt/homebrew/opt/util-linux/bin ]; then
+    export PATH="/opt/homebrew/opt/util-linux/bin:$PATH"
+  fi
 fi
 
 if [ -s /usr/share/dict/words ]; then
