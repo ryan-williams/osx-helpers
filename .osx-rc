@@ -75,6 +75,7 @@ tee_copy() {
 }
 export -f tee_copy
 defn tcy tee_copy
+defn ty tee_copy
 defn cyt tee_copy
 
 czy() {
