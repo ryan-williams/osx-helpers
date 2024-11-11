@@ -163,7 +163,7 @@ defn olsh open_latest_screenshot
 
 mv_latest_screenshot() {
   if [ $# -gt 1 ]; then
-    echo "Usage: $0 [dest]" >&2
+    echo "Usage: ${FUNCNAME[0]} [dest]" >&2
     return 1
   fi
   src="$(latest_screenshot)"
@@ -191,7 +191,7 @@ defn lltd ls_latest_download
 
 mv_latest_download() {
   if [ $# -gt 1 ]; then
-    echo "Usage: $0 [dest]" >&2
+    echo "Usage: ${FUNCNAME[0]} [dest]" >&2
     return 1
   fi
   src="$(latest_download)"
