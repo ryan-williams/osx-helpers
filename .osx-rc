@@ -240,3 +240,7 @@ export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 alias bpr="brew --prefix"
 
 alias uk="security -v unlock-keychain ~/Library/Keychains/login.keychain-db"
+
+if [ -d "$HOME/google-cloud-sdk/bin" ]; then
+  export PATH="$PATH:$HOME/google-cloud-sdk/bin"
+fi
