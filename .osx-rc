@@ -150,15 +150,20 @@ defn mvls mv_latest_screenshot
 
 latest_download() {
   dir="${DOWNLOADS_DIR:-$HOME/Downloads}"
-  last_download="$(ls -t "$dir" | head -n 1)"
+  if [ "$1" == -a ]; then
+    last_download="$(last_updated_all "$dir")"
+  else
+    last_download="$(last_updated "$dir")"
+  fi
   echo "$dir/$last_download"
 }
 export -f latest_download
 defn ltd latest_download
+defn ltda latest_download -a
 defn ldl latest_download
 
 ls_latest_download() {
-  ls -l "$(latest_download)"
+  ls -l "$(latest_download "$@")"
 }
 export -f ls_latest_download
 defn lltd ls_latest_download
