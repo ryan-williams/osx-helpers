@@ -70,37 +70,11 @@ export -f copy_last_updated
 defn clu copy_last_updated
 defn luc copy_last_updated
 
-tee_copy() {
-  cat "$@" | tee >(copy)
-}
-export -f tee_copy
-defn tcy tee_copy
-defn ty tee_copy
-defn cyt tee_copy
-
-czy() {
-  cz "$@" | copy
-}
-export -f czy
-
 alias pbpn="pbpaste | wc -l"
 alias pn="pbpaste | wc -l"
 alias pbpl="pbpaste | len"
 alias pbl="pbpaste | len"
 alias ppl="pbpaste | len"
-
-pwd_copy() {
-  pwd | copy
-}
-export -f pwd_copy
-defn pscy pwd_copy
-
-pwd_tee_copy() {
-  pwd | tee_copy
-}
-export -f pwd_tee_copy
-defn ptcy pwd_tee_copy
-defn pcy pwd_tee_copy
 
 is_osx() {
   uname -a | grep -iq "Darwin"
