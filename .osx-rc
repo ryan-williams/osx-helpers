@@ -155,7 +155,7 @@ latest_download() {
   else
     last_download="$(last_updated "$dir")"
   fi
-  echo "$dir/$last_download"
+  echo "$last_download"
 }
 export -f latest_download
 defn ltd latest_download
@@ -174,7 +174,11 @@ mv_latest_download() {
     return 1
   fi
   src="$(latest_download)"
-  dst="${1:-./}"
+  if [ -z "$1" ]; then
+    dst="$(basename "$src")"
+  else
+    dst="$1"
+  fi
   echo "Moving: $src → $dst"
   mv "$src" "$dst"
 }
