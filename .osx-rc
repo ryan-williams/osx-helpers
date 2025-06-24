@@ -29,7 +29,7 @@ defn tvlc transcode_vlc
 defn oa open -a
 
 open_finder() {
-  local finder
+  local finder=
   local paths=("/Applications/Finder.app" "/System/Library/CoreServices/Finder.app")
   for path in "${paths[@]}"; do
     if [ -d "$path" ]; then
