@@ -111,6 +111,12 @@ defn ni namei
 
 alias pbg="pbpaste | gist -pc"
 
+# Copy current directory path to clipboard
+pwy() {
+    pwd | ty
+}
+export -f pwy
+
 if [ -d "/usr/local/Cellar" ]; then
   export hb=/usr/local/Cellar
 fi
