@@ -113,7 +113,7 @@ alias pbg="pbpaste | gist -pc"
 
 # Copy current directory path to clipboard
 pwy() {
-    pwd | tee_copy
+    pwd | tee >(perl -pe 'chomp if eof' | pbcopy)
 }
 export -f pwy
 
