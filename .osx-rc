@@ -190,6 +190,19 @@ ls_latest_download() {
 export -f ls_latest_download
 defn lltd ls_latest_download
 
+less_latest_download() {
+  less "$(latest_download "$@")"
+}
+export -f less_latest_download
+defn ltdl less_latest_download
+
+cat_latest_download() {
+  cat "$(latest_download "$@")"
+}
+export -f cat_latest_download
+defn ltdc cat_latest_download
+defn cltd cat_latest_download
+
 mv_latest_download() {
   if [ $# -gt 1 ]; then
     echo "Usage: ${FUNCNAME[0]} [dest]" >&2
