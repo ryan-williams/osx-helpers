@@ -203,6 +203,35 @@ export -f cat_latest_download
 defn ltdc cat_latest_download
 defn cltd cat_latest_download
 
+latest_desktop() {
+  dir="${DESKTOP_DIR:-$HOME/Desktop}"
+  if [ "$1" == -a ]; then
+    last_desktop="$(last_updated_all "$dir")"
+  else
+    last_desktop="$(last_updated "$dir")"
+  fi
+  echo "$last_desktop"
+}
+export -f latest_desktop
+defn ludt latest_desktop
+
+mv_latest_desktop() {
+  if [ $# -gt 1 ]; then
+    echo "Usage: ${FUNCNAME[0]} [dest]" >&2
+    return 1
+  fi
+  src="$(latest_desktop)"
+  if [ -z "$1" ]; then
+    dst="$(basename "$src")"
+  else
+    dst="$1"
+  fi
+  echo "Moving: $src → $dst"
+  mv "$src" "$dst"
+}
+export -f mv_latest_desktop
+defn mvdt mv_latest_desktop
+
 mv_latest_download() {
   if [ $# -gt 1 ]; then
     echo "Usage: ${FUNCNAME[0]} [dest]" >&2
